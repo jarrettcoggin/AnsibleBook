@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# A script to set the site domains
+# A script to set the site domain
 # Assumes two environment variables
 #
 # WEBSITE_DOMAIN: the domain of the site (e.g., www.example.com)
@@ -19,5 +19,5 @@ django.setup()
 from django.conf import settings
 from django.contrib.sites.models import Site
 domain = os.environ['WEBSITE_DOMAIN']
-Site.object.filter(id=settings.SITE_ID).update(domain=domain)
+Site.objects.filter(id=settings.SITE_ID).update(domain=domain)
 Site.objects.get_or_create(domain=domain)
